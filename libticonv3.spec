@@ -58,12 +58,12 @@ ldconfig
 %clean
 [ "%{buildroot}" != "/" ] && rm -rf %{buildroot}
 
-%files  
+%files -n %{libname} 
 %defattr(-,root,root)
 %doc %{doc_files}
 %{_libdir}/lib*.so.*
 
-%files %{develname}
+%files -n %{develname}
 %defattr(-,root,root)
 %{_includedir}/tilp2
 %{_libdir}/*.*a
