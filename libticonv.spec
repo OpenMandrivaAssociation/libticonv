@@ -5,7 +5,7 @@ Name:           libticonv
 BuildRequires:  pkgconfig dos2unix glib2-devel
 Summary:        Communicate with TI calculators
 Version:        1.1.0
-Release:        %mkrel 1
+Release:        %mkrel 2
 Group:          System/Libraries
 License:        GNU General Public License (GPL)
 URL:            http://lpg.ticalc.org/prj_tilp
