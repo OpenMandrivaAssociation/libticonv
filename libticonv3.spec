@@ -25,7 +25,7 @@ Communicate with TI calculators.
 %package -n %{develname}
 Summary:        Development package for libticalcs library
 Group:          Development/C
-Requires:       %{name} = %{version} glib2-devel
+Requires:       %{libname} glib2-devel
 
 %description -n %{develname}
 This package contains the header files and static libraries needed to
