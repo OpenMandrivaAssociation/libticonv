@@ -15,6 +15,9 @@ BuildRoot:      %{_tmppath}/%{name}-%{version}-build
 
 %define doc_files ChangeLog AUTHORS README LOGO
 
+%description
+Communicate with TI calculators.
+
 %package -n %{libname}
 Summary:        Communicate with TI calculators
 Group:          System/Libraries
