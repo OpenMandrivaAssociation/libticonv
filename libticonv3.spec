@@ -12,6 +12,7 @@ URL:            http://lpg.ticalc.org/prj_tilp
 Source:         %{name}-%{version}.tar.bz2
 Patch0:         libticonv-foreign_package.patch
 BuildRoot:      %{_tmppath}/%{name}-%{version}-build
+Obsoletes:	libticonv3
 
 %define doc_files ChangeLog AUTHORS README LOGO
 
@@ -21,6 +22,7 @@ Communicate with TI calculators.
 %package -n %{libname}
 Summary:        Communicate with TI calculators
 Group:          System/Libraries
+Obsoletes:	libticonv3
 
 %description -n %{libname}
 Communicate with TI calculators.
@@ -29,6 +31,7 @@ Communicate with TI calculators.
 Summary:        Development package for libticalcs library
 Group:          Development/C
 Requires:       %{libname} glib2-devel
+Obsoletes:	libticonv3-devel
 
 %description -n %{develname}
 This package contains the header files and static libraries needed to
