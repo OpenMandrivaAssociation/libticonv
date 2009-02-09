@@ -1,11 +1,12 @@
-%define major 3
+%define major 1
 %define libname %mklibname ticonv %{major}
-%define develname %mklibname ticonv -d
+%define develname %mklibname ticonv %{major} -d
 Name:           libticonv
 BuildRequires:  pkgconfig dos2unix glib2-devel
 Summary:        Communicate with TI calculators
 Version:        1.1.0
 Release:        %mkrel 2
+Epoch:		1
 Group:          System/Libraries
 License:        GNU General Public License (GPL)
 URL:            http://lpg.ticalc.org/prj_tilp
@@ -47,7 +48,6 @@ for i in %{doc_files}; do
 done
 
 %build
-autoreconf -fi
 export CFLAGS="%{optflags}" 
 ./configure --prefix=%{_prefix} --mandir=%{_mandir} --libdir=%{_libdir}
 make
