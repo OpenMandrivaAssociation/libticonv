@@ -5,7 +5,7 @@
 Summary:	Communicate with TI calculators
 Name:		libticonv
 Version:	1.1.0
-Release:	%mkrel 3
+Release:	%mkrel 4
 Group:		System/Libraries
 License:	GPLv2+
 URL:		http://lpg.ticalc.org/prj_tilp
@@ -28,6 +28,8 @@ Communicate with TI calculators.
 %package -n %{develname}
 Summary:	Development package for libticalcs library
 Group:		Development/C
+Provides:	ticonv-devel = %{version}-%{release}
+Provides:	%{name}-devel = %{version}-%{release}
 Requires:	%{libname} = %{version}-%{release}
 Obsoletes:	%{mklibname ticonv 1 -d}
 
@@ -37,7 +39,6 @@ develop applications with libticalcs.
 
 %prep
 %setup -q 
-#-n libticonv-%{version}
 for i in ChangeLog AUTHORS README LOGO; do
     dos2unix $i
     iconv -f iso-8859-1 -t UTF-8 -o xxx $i && mv xxx $i
