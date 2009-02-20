@@ -1,73 +1,72 @@
-%define major 1
+%define major 3
 %define libname %mklibname ticonv %{major}
-%define develname %mklibname ticonv %{major} -d
-Name:           libticonv
-BuildRequires:  pkgconfig dos2unix glib2-devel
-Summary:        Communicate with TI calculators
-Version:        1.1.0
-Release:        %mkrel 2
-Epoch:		1
-Group:          System/Libraries
-License:        GNU General Public License (GPL)
-URL:            http://lpg.ticalc.org/prj_tilp
-Source:         %{name}-%{version}.tar.bz2
-Patch0:         libticonv-foreign_package.patch
-BuildRoot:      %{_tmppath}/%{name}-%{version}-build
-Obsoletes:	libticonv3
+%define develname %mklibname ticonv -d
 
-%define doc_files ChangeLog AUTHORS README LOGO
+Summary:	Communicate with TI calculators
+Name:		libticonv
+Version:	1.1.0
+Release:	%mkrel 3
+Group:		System/Libraries
+License:	GPLv2+
+URL:		http://lpg.ticalc.org/prj_tilp
+Source0:	%{name}-%{version}.tar.bz2
+Patch0:		libticonv-foreign_package.patch
+BuildRequires:	dos2unix
+BuildRequires:	glib2-devel
+BuildRoot:	%{_tmppath}/%{name}-%{version}-buildroot
 
 %description
 Communicate with TI calculators.
 
 %package -n %{libname}
-Summary:        Communicate with TI calculators
-Group:          System/Libraries
-Obsoletes:	libticonv3
+Summary:	Communicate with TI calculators
+Group:		System/Libraries
 
 %description -n %{libname}
 Communicate with TI calculators.
 
 %package -n %{develname}
-Summary:        Development package for libticalcs library
-Group:          Development/C
-Requires:       %{libname} glib2-devel
-Obsoletes:	libticonv3-devel
+Summary:	Development package for libticalcs library
+Group:		Development/C
+Requires:	%{libname} = %{version}-%{release}
+Obsoletes:	%{mklibname ticonv 1 -d}
 
 %description -n %{develname}
 This package contains the header files and static libraries needed to
 develop applications with libticalcs.
 
-
-
 %prep
-%setup -q -n libticonv-%{version}
-for i in %{doc_files}; do
+%setup -q 
+#-n libticonv-%{version}
+for i in ChangeLog AUTHORS README LOGO; do
     dos2unix $i
     iconv -f iso-8859-1 -t UTF-8 -o xxx $i && mv xxx $i
 done
 
 %build
-export CFLAGS="%{optflags}" 
-./configure --prefix=%{_prefix} --mandir=%{_mandir} --libdir=%{_libdir}
-make
+%configure2_5x 
+
+%make
 
 %install
-%makeinstall
+rm -rf %{buildroot}
+%makeinstall_std
 
-%post
-ldconfig
+%if %mdkversion < 200900
+%post -n %{libname} -p /sbin/ldconfig
+%endif
 
-%postun
-ldconfig
+%if %mdkversion < 200900
+%postun-n %{libname} -p /sbin/ldconfig
+%endif
 
 %clean
-[ "%{buildroot}" != "/" ] && rm -rf %{buildroot}
+rm -rf %{buildroot}
 
 %files -n %{libname} 
 %defattr(-,root,root)
-%doc %{doc_files}
-%{_libdir}/lib*.so.*
+%doc ChangeLog AUTHORS README LOGO
+%{_libdir}/lib*.so.%{major}*
 
 %files -n %{develname}
 %defattr(-,root,root)
@@ -75,4 +74,3 @@ ldconfig
 %{_libdir}/*.*a
 %{_libdir}/*.so
 %{_libdir}/pkgconfig/ticonv.pc
-
