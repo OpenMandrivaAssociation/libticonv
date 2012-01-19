@@ -1,4 +1,4 @@
-%define major 4
+%define major 6
 %define libname %mklibname ticonv %{major}
 %define develname %mklibname ticonv -d
 
