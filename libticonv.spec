@@ -72,7 +72,7 @@ rm -rf %{buildroot}
 %files -n %{develname}
 %defattr(-,root,root)
 %{_includedir}/tilp2
-%{_libdir}/*.*a
+%{_libdir}/*.*
 %{_libdir}/*.so
 %{_libdir}/pkgconfig/ticonv.pc
 
