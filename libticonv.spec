@@ -4,7 +4,7 @@
 
 Summary:	Communicate with TI calculators
 Name:		libticonv
-Version:	1.1.1
+Version:	1.1.3
 Release:	%mkrel 1
 Group:		System/Libraries
 License:	GPLv2+
