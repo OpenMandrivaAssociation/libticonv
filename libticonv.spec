@@ -50,6 +50,8 @@ done
 
 %install
 %makeinstall_std
+rm -f %buildroot%{_libdir}/*.la
+
 
 %files -n %{libname} 
 %doc ChangeLog AUTHORS README LOGO
