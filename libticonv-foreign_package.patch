@@ -1,0 +1,14 @@
+This is no FSF package, so tell that to automake so we can get rid
+of the empty NEWS file.
+
+--- Makefile.am
++++ Makefile.am
+@@ -1,5 +1,8 @@
+ ## Process this file with automake to produce Makefile.in
+ 
++#Tell automake that this is not a FSF package
++AUTOMAKE_OPTIONS=foreign
++
+ # Subdirectories to scan
+ SUBDIRS = build intl po src tests
+ 
