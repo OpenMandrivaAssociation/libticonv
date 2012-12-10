@@ -50,8 +50,6 @@ done
 
 %install
 %makeinstall_std
-rm -f %buildroot%{_libdir}/*.la
-
 
 %files -n %{libname} 
 %doc ChangeLog AUTHORS README LOGO
@@ -62,3 +60,54 @@ rm -f %buildroot%{_libdir}/*.la
 # %{_libdir}/*.*
 %{_libdir}/*.so
 %{_libdir}/pkgconfig/ticonv.pc
+
+
+%changelog
+* Mon Feb 20 2012 Alexander Khrukin <akhrukin@mandriva.org> 1.1.3-2
++ Revision: 778077
+- spec updated for cooker
+
+* Thu Jan 19 2012 Zombie Ryushu <ryushu@mandriva.org> 1.1.3-1
++ Revision: 762237
+- Fix major to 6
+- Upgrade to 1.1.3
+
+* Sun Jul 11 2010 Zombie Ryushu <ryushu@mandriva.org> 1.1.1-1mdv2011.0
++ Revision: 551022
+- Upgrade to 1.1.1
+- Upgrade to 1.1.1
+
+* Mon Sep 14 2009 Thierry Vignaud <tv@mandriva.org> 1.1.0-5mdv2010.0
++ Revision: 439481
+- rebuild
+
+* Fri Feb 20 2009 Tomasz Pawel Gajc <tpg@mandriva.org> 1.1.0-4mdv2009.1
++ Revision: 343286
+- add missing devel provides
+- fix libification
+- spec file clean
+
+  + Zombie Ryushu <ryushu@mandriva.org>
+    - Add epoch so TILP2 Drivers look different from TILP1 as suggested by Buchan
+
+* Tue Jan 27 2009 Zombie Ryushu <ryushu@mandriva.org> 1.1.0-2mdv2009.1
++ Revision: 334043
+- Fix SPEC name
+- Fix SPEC name
+- Obsolete old packages
+- Work in progress
+- Work in progress
+- Work in progress
+- Fix name
+- Work in progress
+
+* Mon Jan 26 2009 Zombie Ryushu <ryushu@mandriva.org> 1.1.0-1mdv2009.1
++ Revision: 333623
+- New Version
+
+* Mon Jan 26 2009 Zombie Ryushu <ryushu@mandriva.org> 1.0.5-1mdv2009.1
++ Revision: 333615
+- New Version
+- New Version
+- import libticonv3
+
