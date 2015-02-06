@@ -5,7 +5,7 @@
 Summary:	Communicate with TI calculators
 Name:		libticonv
 Version:	1.1.3
-Release:	2
+Release:	3
 Group:		System/Libraries
 License:	GPLv2+
 URL:		http://lpg.ticalc.org/prj_tilp
