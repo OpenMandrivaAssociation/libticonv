@@ -8,7 +8,7 @@ Version:	1.1.3
 Release:	3
 Group:		System/Libraries
 License:	GPLv2+
-URL:		http://lpg.ticalc.org/prj_tilp
+URL:		https://lpg.ticalc.org/prj_tilp
 Source0:	%{name}-%{version}.tar.bz2
 Patch0:		libticonv-foreign_package.patch
 BuildRequires:	dos2unix
