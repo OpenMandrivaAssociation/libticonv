@@ -11,6 +11,11 @@ License:	GPLv2+
 URL:		https://lpg.ticalc.org/prj_tilp
 Source0:	%{name}-%{version}.tar.bz2
 Patch0:		libticonv-foreign_package.patch
+BuildRequires:	autoconf
+BuildRequires:	automake
+BuildRequires:	libtool-base
+BuildRequires:	slibtool
+BuildRequires:	make
 BuildRequires:	dos2unix
 BuildRequires:	glib2-devel
 
